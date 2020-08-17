@@ -46,5 +46,33 @@ router.post('/', (req, res) => {
 	});
 });
 
+// Update Todo
+router.put('/:id', async (req, res) => {
+	let id = req.params.id;
+
+	try {
+
+		let todo = await Todos.findOne({_id: id});
+
+		// Update the todo
+		if (todo != null) {
+			todo.title = req.body.title;
+			todo.body = req.body.body;
+
+			await todo.save();
+
+			res.json(todo);
+
+		}
+		else {
+			res.json({error: true, message: `Todo with id '${id}' was not found` });
+		}
+
+	} catch(e) {
+		console.log(e);
+		res.json({error: true, message: `There was an error with todo id ${id}`});
+
+	}
+});
 
 module.exports = router;
