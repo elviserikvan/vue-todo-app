@@ -4,8 +4,16 @@ const Todos = require('../models/Model');
 
 
 // Get all todos
-router.get('/', (req, res) => {
-	res.json('Fuck you');
+router.get('/', async (req, res) => {
+
+	try {
+		let todos = await Todos.find().exec();
+		res.json(todos);
+	} catch (e) {
+		res.json({error: true, message: `Unknown Error`});
+
+	}
+
 });
 
 // Get single todo
@@ -33,7 +41,6 @@ router.get('/:id',  async (req, res) => {
 
 // Save new todo
 router.post('/', (req, res) => {
-	console.log(req.body);
 
 	// Save to the database
 	new Todos(req.body).save((err, doc) => {
