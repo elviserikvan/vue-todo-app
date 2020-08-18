@@ -17,6 +17,18 @@
 					</td>
 
 				</tr>
+				<tr v-for="(todo, index) in this.$store.state.todos">
+					<td>{{todo.title}}</td>
+					<td>{{todo.body}}</td>
+					<td>
+						<button class="btn btn-warning">Edit</button>
+					</td>
+					<td>
+						<button class="btn btn-danger">Delete</button>
+					</td>
+
+				</tr>
+
 			</tbody>
 
 		</table>
@@ -26,9 +38,6 @@
 <script>
 	export default {
 		name: 'ShowTodos',
-		created() {
-			this.$store.commit('getAllTodos');
-			//console.log(this.$store.state.todos);
-		}
+		created() { this.$store.commit('getAllTodos') }
 	}
 </script>
