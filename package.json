@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.10.4",
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.2",
     "express": "^4.17.1",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-regenerator": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
     "css-loader": "^4.2.1",
     "style-loader": "^1.2.1",

@@ -10,7 +10,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
 	state: {
 		msg: 'This comes from vuex',
-		todos: ['Nojoda'],
+		todos: [],
 		urlAPI: 'http://localhost:3000/api'
 	},
 	mutations: {
@@ -20,15 +20,8 @@ const store = new Vuex.Store({
 		async getAllTodos(state) {
 			let response = await fetch(state.urlAPI);
 			let data = await response.json();
-			console.log(data);
+			state.todos = data;
 
-//				.then(json => { 
-//					state.todos = json;
-//					console.log('GOt here');
-//				})
-//				.catch(e => console.error(e));
-
-			state.todos = ['Coño nojoda'];
 		},
 		postNewTodo(state, data) {
 			let config = {
@@ -45,7 +38,6 @@ const store = new Vuex.Store({
 				.then(res => res.json())
 				.then(json => console.log(json))
 				.catch(e => console.error(e))
-		
 		}
 	}
 });
