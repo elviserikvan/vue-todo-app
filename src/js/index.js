@@ -36,8 +36,29 @@ const store = new Vuex.Store({
 
 			fetch(state.urlAPI, config)
 				.then(res => res.json())
-				.then(json => console.log(json))
+				.then(json => state.todos.push(json))
 				.catch(e => console.error(e))
+		},
+		async deleteTodo(state, id) {
+			
+			let config = {
+				headers: {
+					"Accept": 'application/json',
+					'Content-Type': 'application/json'
+				},
+				method: 'DELETE'
+			}
+
+			let url = `${state.urlAPI}/${id}`;
+
+			let response = await fetch(url, config);
+			let data = await response.json();
+
+			if (data.status == 'success') {
+				state.todos = state.todos.filter(todo => todo._id != id);
+			}else {
+				console.log('Something happed');
+			}	
 		}
 	}
 });

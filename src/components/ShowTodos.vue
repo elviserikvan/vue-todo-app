@@ -6,17 +6,6 @@
 				<th>Content</th>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Simple title</td>
-					<td>Simple Body</td>
-					<td>
-						<button class="btn btn-warning">Edit</button>
-					</td>
-					<td>
-						<button class="btn btn-danger">Delete</button>
-					</td>
-
-				</tr>
 				<tr v-for="(todo, index) in this.$store.state.todos">
 					<td>{{todo.title}}</td>
 					<td>{{todo.body}}</td>
@@ -24,7 +13,7 @@
 						<button class="btn btn-warning">Edit</button>
 					</td>
 					<td>
-						<button class="btn btn-danger">Delete</button>
+						<button @click="deleteTodo(todo._id)" class="btn btn-danger">Delete</button>
 					</td>
 
 				</tr>
@@ -38,6 +27,13 @@
 <script>
 	export default {
 		name: 'ShowTodos',
+		methods: {
+
+			deleteTodo(todoId){
+				this.$store.commit('deleteTodo', todoId);
+			}
+	
+		},
 		created() { this.$store.commit('getAllTodos') }
 	}
 </script>
