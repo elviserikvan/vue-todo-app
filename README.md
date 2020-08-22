@@ -14,5 +14,5 @@ This is a simple Todo App built with NodeJS and VueJS that implements CRUD funda
 	- Vuex
 
 ## Screenshots
-![Screenshot One] ( https://github.com/elviserikvan/vue-todo-app/blob/master/project-screenshots/Screenshot-1.png "App Front Page")
-![Screenshot Two] ( https://github.com/elviserikvan/vue-todo-app/blob/master/project-screenshots/Screenshot-2.png "App Edit Page")
+![Screenshot One]( https://github.com/elviserikvan/vue-todo-app/blob/master/project-screenshots/Screenshot-1.png "App Front Page")
+![Screenshot Two]( https://github.com/elviserikvan/vue-todo-app/blob/master/project-screenshots/Screenshot-2.png "App Edit Page")
