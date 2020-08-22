@@ -6,7 +6,7 @@
 				<th>Content</th>
 			</thead>
 			<tbody>
-				<tr v-for="(todo, index) in this.$store.state.todos">
+				<tr v-for="(todo, index) in todos">
 					<td>{{todo.title}}</td>
 					<td>{{todo.body}}</td>
 					<td>
@@ -40,17 +40,9 @@
 
 				this.$store.commit('deleteTodo', todoId);
 			},
-			...mapMutations(['startEditingTodo']),
-			async updateTodo(id) {
-			
-				// Get todo info to be updated
-				let url = 	
-
-				console.log(this.editing);
-			}
-	
+			...mapMutations(['startEditingTodo'])
 		},
-		computed: mapState(['editing', 'todo']),
+		computed: mapState(['editing', 'todo', 'todos']),
 		created() { this.$store.commit('getAllTodos') }
 	}
 </script>
